@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Cubo 3D</title>
+
+	<style>
+
+        @keyframes rotation{
+			from{
+				transform: rotateY(0deg);
+				
+			}
+            to{
+				transform: rotateY(359deg);
+			}
+        }
+		@keyframes rotation2{
+			from{
+				transform: rotateX(0deg);
+			}
+			to{
+				transform: rotateX(359deg);
+			}
+		}
+		#container{
+			perspective: 800px;
+			margin: 200px auto;
+			width: 300px;
+		}
+		
+		#cubo{
+			transform-style: preserve-3d;
+			width: 300px;
+			height: 300px;
+		}
+		.rotacion1{
+            animation: rotation 10s infinite linear;
+		}
+		.rotacion2{
+			animation: rotation2 10s infinite linear;
+		}
+		.cara{
+			position: absolute;
+			height: 300px;
+			width: 300px;
+		}
+		#button{
+			text-align: center;
+			background-color: blueviolet;
+			width: 300px;
+			margin: 0px auto;
+			border-radius: 10px;
+			font-size: 30px;
+			cursor: pointer;
+		}
+		.enfrente{
+			background-color: rgba(95,27,188,0.5);
+			transform: translateZ(150px);
+		}
+		.atras{
+			background-color: rgba(95,242,81,0.5);
+			transform: translateZ(-150px);	
+		}
+		.arriba{
+			background-color: rgba(95,188,27,0.5);
+			transform: translateY(-150px) rotateX(90deg);
+		}
+		.abajo{
+			background-color: rgba(95,81,244,0.5);
+			transform: translateY(150px) rotateX(90deg);	
+		}
+		.izquierda{
+			background-color: rgba(201,54,122,0.5);
+			transform: translateX(-150px) rotateY(90deg);
+		}
+		.derecha{
+			background-color: rgba(196,201,54,0.5);
+			transform: translateX(150px) rotateY(90deg);
+		}
+	</style>
+</head>
+<body>
+	<div id="button">
+		CAMBIAR DIRECCIÓN
+	</div>
+	<div id="container">
+		<div id="cubo" class="rotacion1">
+			<div class="cara enfrente"></div>
+			<div class="cara atras"></div>
+			<div class="cara arriba"></div>
+			<div class="cara abajo"></div>
+			<div class="cara izquierda"></div>
+			<div class="cara derecha"></div>	
+		</div>
+	</div>
+</body>
+
+<script src="js.js"></script>
+</html>
